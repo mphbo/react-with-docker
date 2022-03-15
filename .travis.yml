@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run mphbo/react-with-docker npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "react-with-docker"
+  env: "Reactwithdocker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-080740215952"
+  bucket_path: "react-with-docker"
+  on:
+    branch: master
